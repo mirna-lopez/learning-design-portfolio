@@ -155,6 +155,13 @@ function certificateTemplate(c){
 
 const TOTAL_MODULES = MODULES.length + 1; // + certificate
 
+function goBack(){
+  document.getElementById('course').classList.remove('active');
+  document.getElementById('startScreen').style.display = '';
+  document.getElementById('about').style.display = '';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
 function startCourse(skipAll){
   document.getElementById('startScreen').style.display = 'none';
   document.getElementById('about').style.display = 'none';

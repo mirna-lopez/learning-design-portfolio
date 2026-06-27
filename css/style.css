@@ -78,6 +78,12 @@ button{font-family:inherit; cursor:pointer;}
 .progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--mint),var(--gold)); transition:width .5s ease;}
 
 .course-title{padding:22px 0 6px;}
+.back-btn{
+  display:inline-flex; align-items:center; gap:6px; background:none; border:none;
+  color:var(--mint); font-family:var(--mono); font-size:13px; letter-spacing:0.04em;
+  padding:0; margin-bottom:14px; opacity:0.8; cursor:pointer;
+}
+.back-btn:hover{opacity:1; color:var(--gold);}
 .course-title h2{font-size:clamp(22px,4vw,30px);}
 .course-title p{color:#B7CCC2; font-size:16px; max-width:540px;}
 .skip-note{margin-top:10px !important;}
