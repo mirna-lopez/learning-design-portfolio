@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirna Lopez — A Course on How I Build Learning Experiences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="start" id="startScreen">
+  <div class="byline">
+    <img src="assets/profile-photo.jpg" alt="Mirna Lopez" class="byline-photo">
+    <span>Mirna Lopez</span>
+  </div>
+  <div class="kicker">A short, self assessed course</div>
+  <h1>How I Think About<br><span>Learning Design.</span></h1>
+  <p>Three real projects, told the way a lesson would tell them: an objective, a walkthrough, a moment of honest reflection, and a mark of completion. Click through at your own pace.</p>
+  <p class="start-blurb">
+    I came to instructional design from frontend engineering. I like building the thing, not just describing it, so I built this page the way I'd build a lesson.
+  </p>
+  <button class="start-btn" onclick="startCourse()">Start</button>
+  <button class="skip-btn" onclick="startCourse(true)">Skip ahead, show me everything</button>
+  <div class="hint">No sign in needed. Takes about 4 minutes, or skip straight to the content.</div>
+  <a href="#about" class="scroll-cue" onclick="event.preventDefault(); document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <span>About me</span>
+    <span class="scroll-arrow">&#8595;</span>
+  </a>
+</div>
+
+<section id="about" class="about-section"></section>
+
+<div class="course" id="course">
+  <div class="topbar">
+    <div class="topbar-row">
+      <span id="progressLabel">0 / 4 modules complete</span>
+      <span>Mirna Lopez</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div class="course-title">
+    <h2>Module Roadmap</h2>
+    <p>Click a module to open it. Each one unlocks the next once you mark it complete, the same structure I'd use designing a lesson path for a learner.</p>
+    <p class="skip-note">Prefer to just read everything now? <button class="inline-link" onclick="unlockAll()">Skip the gamified part and unlock all modules</button></p>
+  </div>
+
+  <div class="path" id="path">
+    <!-- Modules are rendered here by js/app.js from js/modules-data.js -->
+  </div>
+</div>
+
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593; Back to top</button>
+
+<footer>Built as a lesson, not just a list — 2026</footer>
+
+<script src="js/modules-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
