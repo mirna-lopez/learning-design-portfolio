@@ -68,11 +68,13 @@ const MODULES = [
     situation: "For a Halloween hackathon, I set out to build Echoes of the Estate, a ghost story game, within a tight deadline. The challenge was designing an engaging interactive narrative and integrating AI so the experience felt dynamic rather than scripted, while building solo and against the clock.",
     builtHeading: "What I built",
     built: [
-      "Structured the narrative around player decision points",
-      "Integrated AI to generate responses in real time based on player choices, instead of pre written text",
-      "Built the full experience solo in React and TypeScript under the hackathon timeline"
+      "Structured the narrative around six interconnected rooms, each with its own atmosphere, audio, and branching paths",
+      "Integrated Claude AI through a separate backend service to generate ghost responses in real time, instead of pre written dialogue",
+      "Built a trust system where empathetic player choices shift the ghost's responses and reveal more of her story over time",
+      "Added full personality localization across six languages, not just translation, so the ghost's Victorian character and tone hold consistently in English, Spanish, Portuguese, French, Hindi, and Japanese",
+      "Built a save system with browser auto save and portable save codes, so progress can continue across devices"
     ],
-    extra: "I brainstormed the narrative structure with AI assistance early on, using it as a thinking partner to work through story logic before writing any code. That is the same instinct I'd bring to designing a lesson: think through the learner's path before building the screen. It also includes bilingual support in English and Spanish, so the same branching story plays naturally in either language.",
+    extra: "I brainstormed the narrative structure with AI assistance early on, using it as a thinking partner to work through story logic before writing any code. That is the same instinct I would bring to designing a lesson, think through the learner's path before building the screen. The localization work in particular mirrors instructional design thinking directly, the same content needs to feel native and intentional in every language, not just translated.",
     images: [
       {
         src: "assets/echoes-screenshot.jpg",
@@ -81,13 +83,70 @@ const MODULES = [
       }
     ],
     link: { url: "https://echoes-estate-game.netlify.app/", label: "Play Echoes of the Estate" },
-    toolkit: ["React", "TypeScript", "AI API integration"],
+    toolkit: ["React", "Node.js/Express", "Claude API", "Context API"],
     reflection: "The constraint was purely time. With more of it, the experience would have had more polish, more refined writing, and smoother transitions. I prioritized a functioning end to end experience over fully polishing every part of it."
+  },
+  {
+    id: 4,
+    label: "Branching with Confidence",
+    sub: "Instructional Design",
+    objective: "Objective: replace repeated PR corrections with a course engineers could actually learn from",
+    title: "Teaching Git branching strategy through interactive course design",
+    situationHeading: "The situation",
+    situation: "New engineers consistently struggled with Git branching conventions during onboarding, leading to repeated PR corrections and slower ramp up time. Static documentation wasn't sticking, so I built an Articulate Rise course to teach branching strategy, naming conventions, and PR workflow in an interactive format instead.",
+    builtHeading: "What I built",
+    built: [
+      "A four-lesson Rise course covering staging vs. main branch strategy, ticket-based naming, commit conventions, and PR workflow",
+      "A custom interactive game, Branch or Bust, coded in HTML, CSS, and JavaScript and embedded directly into the course",
+      "Real branching scenarios with immediate feedback, so learners practice the decision before they make it on a live repo"
+    ],
+    extra: "My instinct in frontend work is to prototype the interaction before writing the docs, and that is exactly what I did here. I built the game first to validate that the scenario format actually taught the concept, then wrapped the course around it.",
+    images: [
+      {
+        src: "assets/course.png",
+        alt: "Screenshot of the Branching with Confidence Rise course, showing the lesson structure and navigation",
+        caption: "The Rise course: four lessons covering branch strategy, naming conventions, commit conventions, and PR workflow."
+      },
+      {
+        src: "assets/game-course.png",
+        alt: "Screenshot of the Branch or Bust interactive game embedded in the course, showing a branching scenario with answer choices",
+        caption: "Branch or Bust, the custom game embedded directly in the course: real scenarios, immediate feedback, no static docs."
+      }
+    ],
+    link: { url: "branching-with-confidence.html", label: "Try the course →", newTab: false },
+    toolkit: ["Articulate Rise 360", "HTML/CSS/JavaScript", "GitHub Pages"],
+    reflection: "The platform's sharing feature strips custom HTML embeds on export. I worked around it by exporting the full course as a web build and self-hosting it, which preserved the embedded game and kept the interactive experience intact."
+  },
+  {
+    id: 5,
+    label: "Video Editing",
+    sub: "Visual Storytelling",
+    objective: "Objective: demonstrate editing fundamentals — pacing, typography, and visual storytelling — independent of any specific course content",
+    title: "Two short edits built to show what I can do with video",
+    situationHeading: "The situation",
+    situation: "Instructional content isn't only text and slides. I built two short video pieces to demonstrate core editing skills, a course walkthrough that shows the overall structure of an interactive course, and a standalone personal edit focused purely on pacing and atmosphere.",
+    builtHeading: "What I built",
+    built: [
+      "A course walkthrough video giving an overview of Branching with Confidence, covering the lesson structure, content, and design choices",
+      "A standalone edit called El Salvador, built from free stock aerial photography and footage, using AI assisted tools for sequencing, then refined manually for pacing and tone"
+    ],
+    videos: [
+      {
+        src: "assets/Your new intern onboarding course (1).mp4",
+        caption: "Course walkthrough — Branching with Confidence in action, including Branch or Bust."
+      },
+      {
+        src: "assets/A_glimpse_of_home.mp4",
+        caption: "El Salvador — pacing and visual storytelling from real aerial footage."
+      }
+    ],
+    toolkit: ["CapCut", "Canva (Magic Media)"],
+    reflection: "Both videos went through multiple rounds of revision, dialing in clean pacing for the walkthrough, and for El Salvador, iterating on text overlay tone until it felt authentic rather than generic. I used free stock footage and AI tools to speed up sequencing, the same kind of workflow shortcuts that keep production efficient without sacrificing intentional editing choices."
   }
 ];
 
 const CERTIFICATE = {
-  id: 4,
+  id: 6,
   label: "Certificate",
   sub: "Course complete",
   name: "Mirna Lopez",
@@ -96,14 +155,14 @@ const CERTIFICATE = {
   contact: {
     email: "lopez.mirna2807@gmail.com",
     linkedin: "https://www.linkedin.com/in/mirna-lopez/",
-    status: "Open to instructional design roles and Front-end roles"
+    status: "Open to instructional design roles and frontend roles"
   },
   resume: "assets/resume.pdf"
 };
 
 const ABOUT = {
   photo: "assets/profile-photo.jpg",
-  bio: "I'm a Frontend Lead at Assistiv, an AI powered learning management platform, and a Computer Science student at Oregon State University. I care about how people learn as much as how software works, which is why I built this page as a course instead of a list. Bilingual in English and Spanish.",
+  bio: "I care about how people learn as much as how software works, which is why I built this page as a course instead of a list. Leading a frontend team taught me that the hardest part of any rollout isn't writing the code, it's making sure people actually understand how to use it. That's the problem I want to solve full time, in both English and Spanish.",
   links: {
     linkedin: "https://www.linkedin.com/in/mirna-lopez/",
     github: "https://github.com/mirna-lopez",
@@ -150,7 +209,7 @@ const ABOUT = {
     }
   ],
   education: [
-    "B.S. Computer Science, Oregon State University (eCampus), expected 2028",
+    "B.S. Computer Science, Oregon State University (eCampus)",
     "Academy of Engineering, NAF, Dallas TX, 2021",
     "CodePath Intro to Web Development, issued April 2025"
   ]

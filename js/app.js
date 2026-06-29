@@ -69,8 +69,14 @@ function moduleTemplate(m, isFirst){
     `<img src="${img.src}" alt="${img.alt}" class="proof-img">
      <p class="caption">${img.caption}</p>`
   ).join('');
+  const videoBlocks = (m.videos || []).map(v =>
+    `<video src="${v.src}" controls class="proof-video"></video>
+     <p class="caption">${v.caption}</p>`
+  ).join('');
   const linkBlock = m.link
-    ? `<a href="${m.link.url}" target="_blank" rel="noopener" class="lesson-link">${m.link.label} &#8599;</a>`
+    ? (m.link.newTab === false
+        ? `<a href="${m.link.url}" class="lesson-link">${m.link.label}</a>`
+        : `<a href="${m.link.url}" target="_blank" rel="noopener" class="lesson-link">${m.link.label} &#8599;</a>`)
     : '';
   const toolkitTags = m.toolkit.map(t => `<span>${t}</span>`).join('');
 
@@ -95,9 +101,10 @@ function moduleTemplate(m, isFirst){
           <div class="step" id="step-${m.id}-2">
             <h4>${m.builtHeading}</h4>
             <ul>${builtItems}</ul>
-            <p>${m.extra}</p>
+            ${m.extra ? `<p>${m.extra}</p>` : ''}
             ${linkBlock}
             ${imageBlocks}
+            ${videoBlocks}
           </div>
           <div class="step" id="step-${m.id}-3">
             <h4>Toolkit</h4>
@@ -252,4 +259,12 @@ window.addEventListener('scroll', () => {
   else{ totop.classList.remove('show'); }
 });
 
-document.addEventListener('DOMContentLoaded', () => { renderPath(); renderAbout(); });
+document.addEventListener('DOMContentLoaded', () => {
+  renderPath();
+  renderAbout();
+  const match = window.location.hash.match(/^#open-(\d+)$/);
+  if(match){
+    startCourse(true);
+    setTimeout(() => toggleNode(parseInt(match[1])), 50);
+  }
+});
